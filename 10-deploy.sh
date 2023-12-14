@@ -13,6 +13,7 @@ source ./set-env.sh
 
 ./40-start-a-k8s-cluster.sh
 ./50-install-opensearch.sh
-#./50-install-postgres-operator.sh
-#./60-create-postgres-cluster.sh
-#./70-test.sh
+./60-install-fluent-operator.sh
+./70-ingest.sh
+./80-connect-to-dashboard.sh
+

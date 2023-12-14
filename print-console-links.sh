@@ -11,4 +11,3 @@ echo
 echo "whoami:                http://$(get-primary-ip):${INGRESS_PORT}/whoami"
 echo "opensearch ui:         http://$(get-primary-ip):${INGRESS_PORT}/opensearch"
 echo "opensearch-dashboards: http://$(get-primary-ip):${INGRESS_PORT}/opensearch-dashboards"
-
