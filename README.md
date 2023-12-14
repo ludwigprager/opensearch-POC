@@ -1,8 +1,8 @@
-# keycloak-POC
+# opensearch-POC
 
 ## Description
 
-This project is a keycloak playground to install, configure and run in a kubernetes cluster 
+This project is a opensearch playground to install, configure and run in a kubernetes cluster 
 in a matter of minutes without affecting running installations.  
 It is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
 remove most traces when applied after use.
@@ -11,8 +11,8 @@ remove most traces when applied after use.
 Clone this repo and run the start script:
 
 ```
-git clone --origin github https://github.com/ludwigprager/keycloak-POC.git
-./keycloak-POC/10-deploy.sh
+git clone --origin github https://github.com/ludwigprager/opensearch-POC.git
+./opensearch-POC/10-deploy.sh
 ```
 
 
@@ -22,7 +22,11 @@ git clone --origin github https://github.com/ludwigprager/keycloak-POC.git
 
 ## How this POC works
 
-TODO
+The script points you to a URL. Open the URL to access the dashboards.  
+Select
+- Index Management
+- indices
+There, you see the incdices that were create by `70-ingest.sh`.
 
 # Script Properties
 
