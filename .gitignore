@@ -1,0 +1,8 @@
+kubeconfig
+kubeconfig.*
+kubectl
+k3d
+helm
+helm-v?.??.?-linux-amd64.tar.gz
+linux-amd64
+dashboards.values.yaml
