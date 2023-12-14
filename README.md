@@ -25,7 +25,7 @@ git clone --origin github https://github.com/ludwigprager/opensearch-POC.git
 The script points you to a URL. Open the URL to access the dashboards.  
 Select
 - Index Management
-- indices
+- indices  
 There, you see the incdices that were create by `70-ingest.sh`.
 
 # Script Properties
