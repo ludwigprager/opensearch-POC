@@ -26,7 +26,8 @@ The script points you to a URL. Open the URL to access the dashboards.
 Select
 - Index Management
 - indices  
-There, you see the incdices that were create by `70-ingest.sh`.
+
+There, you see the incdices that were created by [70-ingest.sh](./70-ingest.sh).
 
 # Script Properties
 
