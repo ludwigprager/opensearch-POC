@@ -22,22 +22,24 @@ FOO_PID=$!
 wait-for-port-forward 9200
 
 ARTICLE_ID=$RANDOM$RANDOM
+PROTOCOL=https
+PROTOCOL=http
 
 SVC=localhost
 
-curl --fail -XGET --insecure -u 'admin:admin' "https://$SVC:9200"
+curl --fail -XGET --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200"
 
 # Create your first index.
-curl --fail -XPUT --insecure -u 'admin:admin' "https://$SVC:9200/my-first-index${ARTICLE_ID}"
+curl --fail -XPUT --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200/my-first-index${ARTICLE_ID}"
 
 # Add some data to your newly created index.
-curl --fail -XPUT --insecure -u 'admin:admin' "https://$SVC:9200/my-first-index${ARTICLE_ID}/_doc/1" -H 'Content-Type: application/json' -d '{"Description": "To be or not to be, that is the question."}'
+curl --fail -XPUT --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200/my-first-index${ARTICLE_ID}/_doc/1" -H 'Content-Type: application/json' -d '{"Description": "To be or not to be, that is the question."}'
 
 # Retrieve the data to see that it was added properly.
-curl --fail -XGET --insecure -u 'admin:admin' "https://$SVC:9200/my-first-index${ARTICLE_ID}/_doc/1"
+curl --fail -XGET --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200/my-first-index${ARTICLE_ID}/_doc/1"
 
 # aus: https://dev.to/ankitmalikg/opensearch-crud-operation-with-curl-4dka
-curl --fail -XPUT --insecure -u 'admin:admin' "https://$SVC:9200/dev-article${ARTICLE_ID}" -H 'Content-Type: application/json' -d '
+curl --fail -XPUT --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200/dev-article${ARTICLE_ID}" -H 'Content-Type: application/json' -d '
 {
   "settings": {
     "number_of_shards": 1,
@@ -55,7 +57,7 @@ curl --fail -XPUT --insecure -u 'admin:admin' "https://$SVC:9200/dev-article${AR
   }
 }'
 
-curl --fail -XPOST --insecure -u 'admin:admin' "https://$SVC:9200/dev-article${ARTICLE_ID}/_doc" -H 'Content-Type: application/json' -d '
+curl --fail -XPOST --insecure -u 'admin:admin' "${PROTOCOL}://$SVC:9200/dev-article${ARTICLE_ID}/_doc" -H 'Content-Type: application/json' -d '
 {
   "title": "Getting Started with OpenSearch",
   "content": "OpenSearch is a powerful open-source search and analytics engine..."

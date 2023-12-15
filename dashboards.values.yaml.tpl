@@ -1,3 +1,5 @@
+opensearchHosts: "http://opensearch-cluster-master:9200"
+
 ingress:
   enabled: true
   ingressClassName: nginx

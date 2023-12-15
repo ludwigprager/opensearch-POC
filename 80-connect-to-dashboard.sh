@@ -19,9 +19,9 @@ trap finish INT TERM EXIT
 FOO_PID=$!
 wait-for-port-forward 8333
 
+INDICES_PATH="app/opensearch_index_management_dashboards#/indices"
 
-
-sensible-browser http://localhost:8333 || echo "http://$(get-primary-ip):8333"
+sensible-browser http://localhost:8333/$INDICES_PATH || echo "http://$(get-primary-ip):8333/$INDICES_PATH"
 
 sleep 5
 echo press "<enter>" to terminate port-forwarding
