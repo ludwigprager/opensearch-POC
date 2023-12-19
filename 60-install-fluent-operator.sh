@@ -18,11 +18,11 @@ source ./set-env.sh
   --values fluent-operator.values.yaml
 
 
-./kubectl get clusteroutputs.fluentd.fluent.io fluentd-output-opensearch -o yaml > clusteroutputs.fluentd.fluent.io.vorher.yaml
+#./kubectl get clusteroutputs.fluentd.fluent.io fluentd-output-opensearch -o yaml > clusteroutputs.fluentd.fluent.io.vorher.yaml
 
 kubectl patch clusteroutputs.fluentd.fluent.io fluentd-output-opensearch \
   --type=merge --patch-file patch-file.yaml
 
-./kubectl get clusteroutputs.fluentd.fluent.io fluentd-output-opensearch -o yaml > clusteroutputs.fluentd.fluent.io.nachher.yaml
+#./kubectl get clusteroutputs.fluentd.fluent.io fluentd-output-opensearch -o yaml > clusteroutputs.fluentd.fluent.io.nachher.yaml
 
 #./kubectl delete sts fluentd 
