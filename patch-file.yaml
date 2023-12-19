@@ -1,0 +1,21 @@
+
+
+spec:
+  outputs:
+  - opensearch:
+      host: opensearch-cluster-master
+      port: 9200
+      logstashFormat: true
+      logstashPrefix: logs
+
+      user:
+        valueFrom:
+          secretKeyRef:
+            key: username
+            name: test-secret
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: password
+            name: test-secret
+

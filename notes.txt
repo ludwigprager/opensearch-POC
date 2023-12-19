@@ -1,0 +1,10 @@
+
+k edit clusteroutputs.fluentd.fluent.io fluentd-output-opensearch 
+k get clusteroutputs.fluentd.fluent.io fluentd-output-opensearch -o yaml
+
+# print all indices
+curl --fail -XGET -u 'admin:admin' "${PROTOCOL}://$SVC:9200/_aliases?pretty=true"
+
+# print all documents in index logs-2023.12.16
+curl --fail -XGET -u 'admin:admin' "${PROTOCOL}://$SVC:9200/logs-2023.12.16/_search?pretty=true&q=*:*"
+

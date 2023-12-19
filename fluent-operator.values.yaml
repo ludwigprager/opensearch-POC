@@ -35,26 +35,7 @@ fluentd:
   logLevel: ""
   priorityClassName: ""
   extras: {}
-  # Configure the output plugin parameter in Fluentd.
-  # Fluentd is disabled by default, if you enable it make sure to also set up an output to use.
   output:
-    es:
-      enable: false
-      host: elasticsearch-logging-data.kubesphere-logging-system.svc
-      port: 9200
-      logstashPrefix: ks-logstash-log
-      buffer:
-        enable: false
-        type: file
-        path: /buffers/es
-    kafka:
-      enable: false
-      brokers: "my-cluster-kafka-bootstrap.default.svc:9091,my-cluster-kafka-bootstrap.default.svc:9092,my-cluster-kafka-bootstrap.default.svc:9093"
-      topicKey: kubernetes_ns
-      buffer:
-        enable: false
-        type: file
-        path: /buffers/kafka
     stdout:
       enable: true
     opensearch:
@@ -62,3 +43,16 @@ fluentd:
       host: opensearch-cluster-master
       port: 9200
       logstashPrefix: logs
+
+      user:
+        valueFrom:
+          secretKeyRef:
+            key: username
+            name: test-secret
+      password:
+        valueFrom:
+          secretKeyRef:
+            key: password
+            name: test-secret
+
+
